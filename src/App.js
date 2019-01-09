@@ -20,7 +20,8 @@ class App extends Component {
         this.state = {
             loggedIn: false,
             email: '',
-            password: ''
+            password: '',
+            showMenu: false,
         }
 
         this.login = this.login.bind(this);
@@ -74,22 +75,21 @@ class App extends Component {
             this.state.loggedIn ?
                 <Router>
                 <div className="App">
-
-                    <nav className="navbar" role="navigation" aria-label="main navigation">
+                    <nav className="navbar" role="navigation" aria-label="main navigation" style={{marginBottom: '50px'}}>
                         <div className="navbar-brand">
-                            <a className="navbar-item" href="https://bulma.io">
+                            <div className="navbar-item">
                                 <img style={{maxHeight: '50px'}} src={require('./logo.png')} width="50" height="50"/>
-                            </a>
+                            </div>
 
                             <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                               data-target="navbarBasicExample">
+                               data-target="navbarBasicExample" onClick={() => {this.setState({showMenu: !this.state.showMenu})}}>
                                 <span aria-hidden="true"></span>
                                 <span aria-hidden="true"></span>
                                 <span aria-hidden="true"></span>
                             </a>
                         </div>
 
-                        <div id="navbarBasicExample" className="navbar-menu">
+                        <div id="navbarBasicExample" className={"navbar-menu " + (this.state.showMenu ? 'is-active' : '')}>
                             <div className="navbar-start">
                                 <Link className="navbar-item" to='/users/'>
                                     Users
