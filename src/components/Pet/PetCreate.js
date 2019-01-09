@@ -77,7 +77,7 @@ export default class PetCreate extends Component {
                 <div className="field">
                     <label className="label">Age</label>
                     <div className="control">
-                        <input className="input" type="number" name="age" placeholder="Age" value={this.state.form.name} onChange={this.handleChange}/>
+                        <input className="input" type="number" name="age" placeholder="Age" value={this.state.form.age} onChange={this.handleChange}/>
                     </div>
                 </div>
 
